@@ -10,6 +10,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class ReservarQuartoRequest {
 
     @NotNull
+    private String reservadoPara;
+
+    @NotNull
     @Future
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate checkIn;
@@ -21,14 +24,19 @@ public class ReservarQuartoRequest {
 
     public ReservarQuartoRequest() {}
 
-    public ReservarQuartoRequest(@NotNull @Future LocalDate checkIn,
+    public ReservarQuartoRequest(@NotNull String reservadoPara, @NotNull @Future LocalDate checkIn,
                                  @NotNull @Future LocalDate checkOut) {
+        this.reservadoPara = reservadoPara;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
     }
 
     public Reserva toModel() {
-        return new Reserva(checkIn, checkOut);
+        return new Reserva(reservadoPara, checkIn, checkOut);
+    }
+
+    public String getReservadoPara() {
+        return reservadoPara;
     }
 
     public LocalDate getCheckIn() {

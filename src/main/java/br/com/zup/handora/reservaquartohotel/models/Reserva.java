@@ -26,6 +26,9 @@ public class Reserva {
     private Quarto quarto;
 
     @Column(nullable = false)
+    private String reservadoPara;
+
+    @Column(nullable = false)
     @Future
     private LocalDate checkIn;
 
@@ -42,7 +45,8 @@ public class Reserva {
     @Deprecated
     public Reserva() {}
 
-    public Reserva(@Future LocalDate checkIn, @Future LocalDate checkOut) {
+    public Reserva(String reservadoPara, @Future LocalDate checkIn, @Future LocalDate checkOut) {
+        this.reservadoPara = reservadoPara;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
     }
