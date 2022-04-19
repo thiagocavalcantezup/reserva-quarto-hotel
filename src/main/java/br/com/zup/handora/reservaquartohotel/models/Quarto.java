@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Positive;
 
+import br.com.zup.handora.reservaquartohotel.exceptions.ReservaAtivaException;
+
 @Entity
 @Table(name = "quartos")
 public class Quarto {
@@ -53,6 +55,15 @@ public class Quarto {
         this.tipo = tipo;
     }
 
+    public void reservar(Reserva reserva) {
+        if (isReservaAtiva()) {
+            throw new ReservaAtivaException("O quarto já possui uma reserva ativa.");
+        }
+
+        adicionar(reserva);
+        reservaAtiva = true;
+    }
+
     public void adicionar(Reserva reserva) {
         reserva.setQuarto(this);
         this.reservas.add(reserva);
@@ -60,6 +71,10 @@ public class Quarto {
 
     public Long getId() {
         return id;
+    }
+
+    public boolean isReservaAtiva() {
+        return reservaAtiva;
     }
 
 }
