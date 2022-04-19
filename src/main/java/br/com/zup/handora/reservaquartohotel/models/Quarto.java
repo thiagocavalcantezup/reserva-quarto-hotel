@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 
 import br.com.zup.handora.reservaquartohotel.exceptions.ReservaAtivaException;
 
@@ -26,7 +27,8 @@ public class Quarto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 200)
+    @Size(max = 200)
     private String descricao;
 
     @Column(nullable = false)
