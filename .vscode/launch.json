@@ -1,0 +1,15 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-ReservaQuartoHotelApplication<reserva-quarto-hotel>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "br.com.zup.handora.reservaquartohotel.ReservaQuartoHotelApplication",
+      "projectName": "reserva-quarto-hotel",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
