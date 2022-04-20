@@ -18,4 +18,4 @@ server:
 
 logging:
   level:
-    '[br.com.zup.edu]': debug
+    '[br.com.zup]': debug

@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Version;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
@@ -44,6 +45,9 @@ public class Quarto {
 
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "quarto")
     private Set<Reserva> reservas = new HashSet<>();
+
+    @Version
+    private int versao;
 
     /**
      * @deprecated Construtor de uso exclusivo do Hibernate

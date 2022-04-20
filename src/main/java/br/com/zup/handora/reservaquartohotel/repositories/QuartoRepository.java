@@ -11,8 +11,4 @@ import br.com.zup.handora.reservaquartohotel.models.Quarto;
 
 public interface QuartoRepository extends JpaRepository<Quarto, Long> {
 
-    @Override
-    @Lock(LockModeType.PESSIMISTIC_WRITE)
-    Optional<Quarto> findById(Long id);
-
 }
